@@ -30,7 +30,6 @@ book_path = sys.argv[1]
 with open(book_path) as f:
     content = f.read()
     num_words = count_words(content)
-    # num_each_word = count_each_word(content)
     num_each_letter = count_each_letter(content)
     sorted_letters = sorted(num_each_letter.items(), key=lambda x: x[1], reverse=True) 
     show_report(num_words, sorted_letters)
