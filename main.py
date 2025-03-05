@@ -1,3 +1,5 @@
+import sys
+
 def count_words(text):
     words = text.split()
     return len(words)
@@ -18,7 +20,14 @@ def show_report(total_words, each_letter_count):
     for letter, count in each_letter_count:
         print(f"{letter}: {count}")
 
-with open("books/frankenstein.txt") as f:
+
+if len(sys.argv) != 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
+
+book_path = sys.argv[1]
+
+with open(book_path) as f:
     content = f.read()
     num_words = count_words(content)
     # num_each_word = count_each_word(content)
